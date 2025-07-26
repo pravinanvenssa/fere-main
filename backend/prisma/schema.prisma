@@ -1,0 +1,85 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  firstName String
+  lastName  String
+  password  String
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relationships
+  userRoles UserRole[]
+  
+  @@map("users")
+}
+
+model Role {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  userRoles   UserRole[]
+  rolePermissions RolePermission[]
+  
+  @@map("roles")
+}
+
+model Permission {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  resource    String   // e.g., "users", "roles", "admin"
+  action      String   // e.g., "create", "read", "update", "delete"
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relationships
+  rolePermissions RolePermission[]
+  
+  @@map("permissions")
+}
+
+model UserRole {
+  id     String @id @default(cuid())
+  userId String
+  roleId String
+  
+  // Relationships
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, roleId])
+  @@map("user_roles")
+}
+
+model RolePermission {
+  id           String @id @default(cuid())
+  roleId       String
+  permissionId String
+  
+  // Relationships
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  
+  @@unique([roleId, permissionId])
+  @@map("role_permissions")
+}

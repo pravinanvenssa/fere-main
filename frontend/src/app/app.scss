@@ -1,0 +1,212 @@
+.app-container {
+  height: 100vh;
+  background: #ffffff;
+}
+
+.sidenav-container {
+  height: 100%;
+  background: transparent;
+}
+
+.sidenav {
+  width: 280px;
+  background: #ffffff;
+  border-right: 1px solid #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mat-toolbar {
+  background: #ffffff !important;
+  color: #333 !important;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  height: 72px;
+  padding: 0 24px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.language-select {
+  color: #333;
+  margin-right: 16px;
+  
+  .mat-mdc-select-value {
+    color: #333;
+  }
+  
+  .mat-mdc-select-arrow {
+    color: #333;
+  }
+}
+
+.user-button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #333;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white !important;
+  border-radius: 25px;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.user-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.content {
+  padding: 32px;
+  height: calc(100vh - 72px);
+  overflow: auto;
+  background: #ffffff;
+}
+
+.active {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  color: white !important;
+  border-radius: 12px;
+  margin: 4px 8px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+mat-nav-list {
+  padding-top: 16px;
+}
+
+mat-nav-list a {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 24px;
+  margin: 4px 8px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  color: #555;
+  font-weight: 500;
+}
+
+mat-nav-list a:hover:not(.active) {
+  background: rgba(102, 126, 234, 0.1);
+  transform: translateX(4px);
+}
+
+mat-nav-list mat-icon {
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+}
+
+// Global Material component overrides
+.mat-mdc-card {
+  background: #ffffff !important;
+  border-radius: 12px !important;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.mat-mdc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+mat-card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+mat-card-title {
+  margin: 0;
+  flex: 1;
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.mat-mdc-button {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.3s ease !important;
+}
+
+.mat-mdc-raised-button.mat-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+}
+
+.mat-mdc-raised-button.mat-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+}
+
+// Table styles
+.mat-mdc-table {
+  background: #ffffff !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  border: 1px solid #e0e0e0;
+}
+
+.mat-mdc-header-row {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+}
+
+.mat-mdc-header-cell {
+  color: white !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+}
+
+.mat-mdc-row:hover {
+  background: rgba(102, 126, 234, 0.05) !important;
+}
+
+// Loading spinner
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.mat-mdc-progress-spinner circle {
+  stroke: #667eea !important;
+}
+
+// Global form field styles
+.mat-mdc-form-field {
+  .mat-mdc-floating-label {
+    font-size: 16px !important;
+    color: #666 !important;
+  }
+  
+  &.mat-focused .mat-mdc-floating-label {
+    color: #667eea !important;
+  }
+  
+  .mat-mdc-form-field-flex {
+    min-height: 56px !important;
+    align-items: center !important;
+  }
+  
+  .mat-mdc-form-field-infix {
+    min-height: 40px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+}
